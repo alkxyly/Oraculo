@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/personagens"
+        android:icon="@drawable/ic_home_black_24dp"
+        android:title="@string/personagens" />
+
+    <item
+        android:id="@+id/armas"
+        android:icon="@drawable/ic_dashboard_black_24dp"
+        android:title="@string/armas" />
+
+    <item
+        android:id="@+id/dicas"
+        android:icon="@drawable/ic_notifications_black_24dp"
+        android:title="@string/dicas" />
+    <item
+        android:id="@+id/acessorios"
+        android:icon="@drawable/ic_notifications_black_24dp"
+        android:title="@string/acessorios" />
+    <item
+        android:id="@+id/veiculos"
+        android:icon="@drawable/ic_notifications_black_24dp"
+        android:title="@string/veiculos" />
+    
+
+</menu>
