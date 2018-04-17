@@ -16,9 +16,9 @@
         android:icon="@drawable/ic_dicas"
         android:title="@string/dicas" />
     <item
-        android:id="@+id/acessorios"
+        android:id="@+id/outros"
         android:icon="@drawable/outros"
-        android:title="@string/acessorios" />
+        android:title="@string/outros" />
     <item
         android:id="@+id/veiculos"
         android:icon="@drawable/veiculos"

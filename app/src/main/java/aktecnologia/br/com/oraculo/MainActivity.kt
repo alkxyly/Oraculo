@@ -1,9 +1,15 @@
 package aktecnologia.br.com.oraculo
 
+import aktecnologia.br.com.oraculo.extensions.setupToolbar
+import aktecnologia.br.com.oraculo.fragment.*
 import android.os.Bundle
 import android.support.design.widget.BottomNavigationView
+import android.support.v4.app.Fragment
+import android.support.v4.app.FragmentTransaction
 import android.support.v7.app.AppCompatActivity
+import android.util.Log
 import kotlinx.android.synthetic.main.activity_main2.*
+import kotlinx.android.synthetic.main.toolbar.*
 
 
 class MainActivity : AppCompatActivity() {
@@ -16,30 +22,52 @@ class MainActivity : AppCompatActivity() {
 
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener)
         navigation.selectedItemId = R.id.dicas
+
+        setupToolbar(R.id.toolbar,"Dicas")
     }
     private val mOnNavigationItemSelectedListener = BottomNavigationView.OnNavigationItemSelectedListener { item ->
+
         when (item.itemId) {
             R.id.personagens -> {
-                message.setText(R.string.personagens)
+                toolbar.title = "Personagens"
+                val personagensFragment = PersonagensFragment.newInstance()
+                openFragment(personagensFragment)
                 return@OnNavigationItemSelectedListener true
             }
             R.id.armas -> {
-                message.setText(R.string.armas)
+                toolbar.title = "Armas"
+                val armasFragment = ArmasFragment.newInstance()
+                openFragment(armasFragment)
                 return@OnNavigationItemSelectedListener true
             }
             R.id.dicas -> {
-                message.setText(R.string.dicas)
+                toolbar.title = "Dicas"
+                val dicasFragment = DicasFragment.newInstance()
+                openFragment(dicasFragment)
                 return@OnNavigationItemSelectedListener true
             }
-            R.id.acessorios -> {
-                message.setText(R.string.acessorios)
+            R.id.outros -> {
+                toolbar.title = "Outros"
+                val outrosFragment = OutrosFragment.newInstance()
+                openFragment(outrosFragment)
+              //  message.setText(R.string.outros)
                 return@OnNavigationItemSelectedListener true
             }
             R.id.veiculos -> {
-                message.setText(R.string.veiculos)
+                toolbar.title = "Veículos"
+                val veiculosFragment  = VeiculosFragment.newInstance()
+                openFragment(veiculosFragment)
+            //    message.setText(R.string.veiculos)
                 return@OnNavigationItemSelectedListener true
             }
+
         }
-        false
+          false
+    }
+    private fun openFragment(fragment: Fragment) {
+        val transaction = supportFragmentManager.beginTransaction()
+        transaction.replace(R.id.content_frame, fragment)
+        transaction.addToBackStack(null)
+        transaction.commit()
     }
 }
