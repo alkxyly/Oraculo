@@ -8,22 +8,44 @@ import android.view.View
 import android.view.ViewGroup
 
 import aktecnologia.br.com.oraculo.R
+import aktecnologia.br.com.oraculo.adapter.PersonagemAdapter
+import aktecnologia.br.com.oraculo.model.Personagem
+import aktecnologia.br.com.oraculo.service.PersonagemService
+import android.support.v7.widget.DefaultItemAnimator
+import android.support.v7.widget.LinearLayoutManager
+import android.support.v7.widget.RecyclerView
+import android.util.Log
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
 
-/**
- * A simple [Fragment] subclass.
- *
- */
 class PersonagensFragment : Fragment() {
+    private var personagens = listOf<Personagem>()
+    var recyclerView : RecyclerView? = null
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
-        // Inflate the layout for this fragment
+
         return inflater.inflate(R.layout.fragment_personagens, container, false)
+    }
+
+     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        recyclerView = view?.findViewById<RecyclerView>(R.id.recycleView)
+        recyclerView?.layoutManager = LinearLayoutManager(activity)
+        recyclerView?.itemAnimator = DefaultItemAnimator()
+        recyclerView?.setHasFixedSize(true)
+
+    }
+
+     override fun onResume() {
+        super.onResume()
+        taskPersonagens()
+    }
+
+    fun taskPersonagens(){
+        this.personagens = PersonagemService.getPersonagens(this!!.context!!)
+        recyclerView?.adapter = PersonagemAdapter(personagens,{
+            personagem: Personagem -> Log.i("TAG",personagem.nome)
+        })
     }
 
     companion object {

@@ -7,6 +7,7 @@
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
 
+
         <!-- Activity Animations -->
         <item name="android:windowEnterTransition">@android:transition/fade</item>
         <item name="android:windowExitTransition">@android:transition/fade</item>
@@ -16,7 +17,9 @@
         <item name="android:windowSharedElementExitTransition">@android:transition/move</item>
     </style>
 
-    <style name="AppTheme" parent="BaseAppTheme"/>
+    <style name="AppTheme" parent="BaseAppTheme">
+
+    </style>
     <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 </resources>

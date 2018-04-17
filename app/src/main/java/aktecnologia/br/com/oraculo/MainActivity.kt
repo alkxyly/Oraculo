@@ -21,7 +21,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main2)
 
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener)
-        navigation.selectedItemId = R.id.dicas
+        navigation?.selectedItemId = R.id.dicas
 
         setupToolbar(R.id.toolbar,"Dicas")
     }
