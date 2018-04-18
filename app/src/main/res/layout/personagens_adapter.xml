@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/card_view"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="160dp"
     android:layout_marginTop="8dp"
     android:layout_marginBottom="8dp"
     android:layout_marginStart="16dp"
@@ -13,7 +13,6 @@
     android:elevation="6dp"
     android:foreground="?attr/selectableItemBackground"
     card_view:cardBackgroundColor="@color/branco"
-    card_view:cardCornerRadius="14dp"
     card_view:cardElevation="8dp">
 
 
@@ -31,10 +30,11 @@
                 <ImageView
                     android:id="@+id/fotoPersonagem"
                     android:layout_width="match_parent"
-                    android:layout_height="250dip"
-                    android:layout_gravity="center"
+                    android:layout_height="250dp"
                     android:src="@drawable/wal1"
-                    android:scaleType="centerCrop" />
+                    android:scaleType="fitCenter"
+                    />
+
                 <ProgressBar android:id="@+id/progress"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
