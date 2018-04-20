@@ -1,6 +1,7 @@
 package aktecnologia.br.com.oraculo.fragment
 
 
+import aktecnologia.br.com.oraculo.PersonagemDetalheActivity
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.view.LayoutInflater
@@ -11,11 +12,12 @@ import aktecnologia.br.com.oraculo.R
 import aktecnologia.br.com.oraculo.adapter.PersonagemAdapter
 import aktecnologia.br.com.oraculo.model.Personagem
 import aktecnologia.br.com.oraculo.service.PersonagemService
+import android.content.Intent
 import android.support.v7.widget.DefaultItemAnimator
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
-import android.util.Log
 
+import org.jetbrains.anko.startActivity
 
 class PersonagensFragment : Fragment() {
     private var personagens = listOf<Personagem>()
@@ -44,10 +46,12 @@ class PersonagensFragment : Fragment() {
     fun taskPersonagens(){
         this.personagens = PersonagemService.getPersonagens(this!!.context!!)
         recyclerView?.adapter = PersonagemAdapter(personagens,{
-            personagem: Personagem -> Log.i("TAG",personagem.nome)
+            personagem: Personagem -> onClickPersonagem(personagem)
         })
     }
-
+    fun onClickPersonagem(personagem: Personagem){
+      activity!!.startActivity<PersonagemDetalheActivity>("personagem" to personagem)
+    }
     companion object {
         fun newInstance() : PersonagensFragment = PersonagensFragment()
     }
