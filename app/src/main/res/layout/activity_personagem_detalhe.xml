@@ -8,7 +8,8 @@
     <android.support.v4.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        android:background="@color/background_personagem_detalhes">
         <!-- Layout com detalhes do carro -->
         <include layout="@layout/content_personagem_detalhe" />
     </android.support.v4.widget.NestedScrollView>
